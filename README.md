@@ -1,193 +1,81 @@
-# Gui_TheaterSystem
+# Project README
 
+## Overview
+This project is a simple graphical user interface (GUI) application built using C programming language. The GUI application uses an internal library to handle the rendering and input processing. The application features basic navigation controls such as left, right, up, and down arrow keys.
 
-## Project Overview
+## Features
+- Basic GUI with custom rendering.
+- Navigation control using arrow keys (left, right, up, down).
+- Built-in support for Linux, Windows, Wine, and WebAssembly platforms.
 
-This project implements specialized functionality related to theatersystem.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for theatersystem
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+## Project Structure
+```
+Gui_Theater_System/
+├── build/              # .exe files produced by Main.c
+├── src/                # source code directory
+│   ├── Main.c          # Entry point of the application
+│   └── *.h             # header files used by Main.c
+├── Makefile.linux      # Linux Build configuration
+├── Makefile.windows    # Windows Build configuration
+├── Makefile.wine       # Wine Build configuration
+├── Makefile.web        # Emscripten Build configuration
+└── README.md           # This file
+└── LICENSE
+└── .gitignore
+```
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
 - Standard development tools
+- Libraries needed in specific projects:
+  - Linux: X11, PNG, JPEG
+  - Windows: WINAPI, GDI32, WINMM
+  - Wine: WINAPI, GDI32, WINMM
+  - WebAssembly: Emscripten
 
-### Build Steps
+## Build & Run
+### Build Process
+To build the project for a specific platform, navigate to the project directory and use the appropriate Makefile:
 
-1. Navigate to project directory:
-```bash
-cd Gui_TheaterSystem
+- **Linux**:
+  ```sh
+  make -f Makefile.linux all
+  ```
+  
+- **Windows**:
+  ```sh
+  make -f Makefile.windows all
+  ```
+  
+- **Wine** (for cross-compiling for Windows on Linux):
+  ```sh
+  make -f Makefile.wine all
+  ```
+
+- **WebAssembly**:
+  ```sh
+  make -f Makefile.web all
+  ```
+
+### Execution
+To execute the built application:
+
+```sh
+make -f Makefile.(os) exe
 ```
 
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
+### Clean Rebuild
+For a clean rebuild (removes build artifacts and starts fresh):
 
-3. For clean rebuild:
-```bash
+```sh
 make -f Makefile.(os) clean
 make -f Makefile.(os) all
 ```
 
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
-
 ### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
+- `all`: Build the output.
+- `do`: Build + executable output.
+- `clean`: Remove build artifacts.
 
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Gui_TheaterSystem/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+Replace `(os)` with the appropriate OS (linux, windows, wine, web).
